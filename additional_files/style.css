@@ -133,7 +133,7 @@ nav ul li.active {
 	background-color: var(--var-bg-active);
 	box-shadow: var(--var-small-shadow-inner);
 }
-nav ul li.active {
+nav ul li.active a{
 	color: var(--var-primary);
 }
 nav ul a {
@@ -285,7 +285,8 @@ text-overflow: ellipsis;
 
 
 .video-card .video-card--description {
-	padding: 10px 20px 30px 20px;
+	padding: 10px 20px 0px 20px;
+	margin-bottom: 30px;
 	color: var(--var-secondary);
 	font-family: Lato;
 	font-size: 14px;
@@ -294,6 +295,11 @@ text-overflow: ellipsis;
 	text-align: left;
 	text-underline-position: from-font;
 	text-decoration-skip-ink: none;
+	display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .swiper-controls-wrapper {
