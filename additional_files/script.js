@@ -2,7 +2,7 @@
 
 var swiper = new Swiper('.mySwiper', {
 	slidesPerView: 1,
-	spaceBetween: 0,
+	spaceBetween: 20,
 	preventInteractionOnTransition: true,
 	loop: false,
 	allowTouchMove: false,
@@ -11,6 +11,24 @@ var swiper = new Swiper('.mySwiper', {
 		nextEl: '.swiper-next',
 		prevEl: '.swiper-prev',
 	},
+});
+
+var swiperMobile = new Swiper('.mySwiperMobile', {
+	slidesPerView: 1,
+	spaceBetween: 20,
+	preventInteractionOnTransition: true,
+	loop: false,
+	allowTouchMove: true,
+	centerSlide: true,
+	navigation: {
+		nextEl: '.swiper-next',
+		prevEl: '.swiper-prev',
+	},
+	breakpoints: {
+		600: {
+			slidesPerView: 2,
+		}
+	}
 });
 
 // document.querySelectorAll('.video-card').forEach((swiper_slide) => {
@@ -123,4 +141,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.querySelector('.theme_changer').addEventListener('click', (button) => {
 	document.querySelector('html').classList.toggle('dark');
+})
+
+document.querySelector('.burger').addEventListener('click', (button) =>{
+	let nav_ul = document.querySelector('#nav-ul')
+	if (nav_ul.style.opacity == '1')
+	{
+		console.log(1)
+		nav_ul.style.opacity = '0'
+		nav_ul.style.pointerEvents = 'none'
+	}
+	else if (nav_ul.style.opacity == '0')
+	{
+		console.log(0)
+		nav_ul.style.opacity = '1'
+		nav_ul.style.pointerEvents = 'all'
+	}
+	else 
+	{
+		nav_ul.style.opacity = '1'
+		nav_ul.style.pointerEvents = 'all'
+	}
+
 })
