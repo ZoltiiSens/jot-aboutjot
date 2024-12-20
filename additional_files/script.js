@@ -1,35 +1,51 @@
 'use strict';
 
-var swiper = new Swiper('.mySwiper', {
-	slidesPerView: 1,
-	spaceBetween: 20,
-	preventInteractionOnTransition: true,
-	loop: false,
-	allowTouchMove: false,
-	centerSlide: true,
-	navigation: {
-		nextEl: '.swiper-next',
-		prevEl: '.swiper-prev',
-	},
-});
-
-var swiperMobile = new Swiper('.mySwiperMobile', {
-	slidesPerView: 1,
-	spaceBetween: 20,
-	preventInteractionOnTransition: true,
-	loop: false,
-	allowTouchMove: true,
-	centerSlide: true,
-	navigation: {
-		nextEl: '.swiper-next',
-		prevEl: '.swiper-prev',
-	},
-	breakpoints: {
-		600: {
-			slidesPerView: 2,
-		}
+var x = window.matchMedia("(max-width: 850px)")
+// create an Observer instance
+const resizeObserver = new ResizeObserver(entries => {
+  if (!x.matches){
+		var swiper = new Swiper('.mySwiper', {
+			slidesPerView: 1,
+			spaceBetween: 20,
+			preventInteractionOnTransition: true,
+			loop: false,
+			allowTouchMove: false,
+			centerSlide: true,
+			navigation: {
+				nextEl: '.swiper-next',
+				prevEl: '.swiper-prev',
+			},
+		});
 	}
-});
+	else {
+		var swiperMobile = new Swiper('.mySwiperMobile', {
+			slidesPerView: 1,
+			spaceBetween: 20,
+			preventInteractionOnTransition: true,
+			loop: false,
+			allowTouchMove: true,
+			centerSlide: true,
+			navigation: {
+				nextEl: '.swiper-next',
+				prevEl: '.swiper-prev',
+			},
+			breakpoints: {
+				600: {
+					slidesPerView: 2,
+				}
+			}
+		});
+	}
+})
+
+// start observing a DOM node
+resizeObserver.observe(document.body)
+
+
+
+
+
+
 
 // document.querySelectorAll('.video-card').forEach((swiper_slide) => {
 // 	swiper_slide.querySelector('button').addEventListener('click', (butt) =>{

@@ -54,7 +54,7 @@
 	--var-gohome-inner-shadow: 2px 2px 3px rgba(103, 105, 105, 0.25), -4px -4px 8px rgba(255, 255, 255, 0.9), 4px 4px 8px #D0EBFA, inset 2px 2px 4px #D0EBFA, inset -8px -8px 16px #FFFFFF, inset 8px 8px 16px rgba(103, 105, 105, 0.25);
 	--var-small-shadow-inner: 1px 1px 2px 0px #D0EBFA inset, -1px -1px 2px 0px #FFF inset, 1px 1px 2px 0px #C2CFD6 inset;
 	--var-theme-change-shadow: 2px 2px 4px rgba(103, 105, 105, 0.25), -2px -2px 6px #FFFFFF, 2px 2px 6px #D0EBFA;
-
+	--vhwh: calc(1vh+1vw)
 }
 
 * {
@@ -182,6 +182,36 @@ main {
 	position: relative;
 }
 
+.jot_movie_main {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 40px;
+	padding: 0 30px;
+}
+.jot_movie_main .video-card {
+	height: auto;
+	max-height: none;
+	max-width: 800px;
+	border-radius: 20px;
+}
+.jot_movie_main .video-card--video-wrapper{
+	/* height: auto; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.jot_movie_main .video-card--video-wrapper video{
+	border-radius: 15px;
+	width: 100%;
+}
+
+.jot_movie_main .video-card--video-wrapper button {
+	width: 90px;
+	height: 90px;
+}
+
 .page_header {
 	margin: 20px;
 }
@@ -306,6 +336,7 @@ text-overflow: ellipsis;
 	margin-bottom: 15px;
 	display: flex;
 	gap: 50px;
+	padding-bottom: 15px;
 	/* left: 50%; */
 	/* transform: translateX(-50%); */
 	align-items: center;
@@ -315,6 +346,18 @@ text-overflow: ellipsis;
 }
 .swiper-controls-wrapper * {
 	transition: all .5s ease-in-out;
+}
+
+.swiper-controls-wrapper-new {
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2;
+	
+}
+.swiper-controls-wrapper-new .swiper-control{
+	box-shadow: var(--var-base-shadow);
 }
 
 .swiper-control {
@@ -359,6 +402,10 @@ text-overflow: ellipsis;
 	.video-card .video-card--description {
 		padding: 10px 20px 15px 20px;
 	}
+	.jot_movie_main .video-card--video-wrapper button {
+		width: 80px;
+		height: 80px;
+	}
 }
 @media screen and (max-width: 850px) {
 	.burger {
@@ -399,5 +446,12 @@ text-overflow: ellipsis;
 	}
 	.mySwiperMobile {
 		display: block;
+	}
+	.jot_movie_main {
+		flex-direction: column;
+	}
+	.jot_movie_main .video-card--video-wrapper button {
+		width: 60px;
+		height: 60px;
 	}
 }
